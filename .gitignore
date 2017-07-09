@@ -1,3 +1,5 @@
+secrets.yaml
+
 .HA_VERSION
 .uuid
 *.db
