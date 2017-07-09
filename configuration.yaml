@@ -18,7 +18,7 @@ introduction:
 frontend:
 
 http:
-  api_passowrd !secret http_password
+  api_password: !secret http_password
 
 # Checks for available updates
 updater:

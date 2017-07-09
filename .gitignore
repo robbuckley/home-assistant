@@ -3,6 +3,8 @@ secrets.yaml
 .HA_VERSION
 .uuid
 *.db
+*.db2
 *.log
 *.conf
 tts/
+@eaDir/
