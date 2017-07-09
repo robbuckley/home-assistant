@@ -1,0 +1,82 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 51.2036
+  longitude: -2.1808
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 117
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+http:
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+sensor:
+  - platform: yr
+  - platform: mqtt
+    state_topic: 'smartthings/Motion Sensor/temperature'
+    name: Temperature
+    retain: True
+
+# Text to speech
+tts:
+  platform: google
+
+mqtt:
+  broker: 192.168.2.94
+  port: 1883
+  #client-id: home-assistant-1
+  keepalive: 60
+  #discovery: true
+  # Optional
+  #discovery_prefix: homeassistant
+
+logger:
+  default: warning
+  logs:
+    homeassistant.components.device_tracker.mqtt: debug
+    homeassistant.components.mqtt: debug
+    homeassistant.components.notify: info
+    homeassistant.components.automation: info
+
+# Hue lights
+light:
+  - platform: hue
+    host: 192.168.2.48
+    allow_unreachable: true
+
+
+binary_sensor:
+  - platform: mqtt
+    state_topic: 'smartthings/Motion Sensor/motion'
+    name: Motion
+    payload_on: 'active'
+    payload_off: 'Inactive'
+    retain: True

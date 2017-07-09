@@ -1,0 +1,6 @@
+.HA_VERSION
+.uuid
+*.db
+*.log
+*.conf
+tts/
